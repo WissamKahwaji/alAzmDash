@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { PropertyInfo } from "../../../../apis/properties/type";
 import {
   Box,

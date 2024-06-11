@@ -27,10 +27,10 @@ const useAddPropertyMutation = () => {
   return useMutation({
     mutationKey: ["add-property"],
     mutationFn: (payload: AddPropertyProps) => addProperty(payload),
-    onSuccess(data, variable) {
+    onSuccess(_data, variable) {
       toast.success(`add ${variable.name} successfully.`);
     },
-    onError(data, variable) {
+    onError(_data, variable) {
       toast.error(`failed to add ${variable.name}`);
     },
   });
@@ -42,12 +42,12 @@ const useEditPropertyMutation = () => {
   return useMutation({
     mutationKey: ["edit-property"],
     mutationFn: (payload: AddPropertyProps) => editProperty(payload),
-    onSuccess(data, variable) {
+    onSuccess(_data, variable) {
       toast.success(`edit ${variable.name} successfully.`);
       queryClient.invalidateQueries({ queryKey: ["properties-info"] });
       navigate("/properties", { replace: true });
     },
-    onError(data, variable) {
+    onError(_data, variable) {
       toast.error(`failed to edit ${variable.name}`);
     },
   });
@@ -60,11 +60,11 @@ const useDeletePropertyMutation = () => {
     mutationFn: ({ id }: TProperty) => {
       return deleteProperty(id);
     },
-    onSuccess(data, variable) {
+    onSuccess(_data, variable) {
       toast.success(`delete ${variable.name} successfully.`);
       queryClient.invalidateQueries({ queryKey: ["properties-info"] });
     },
-    onError(data, variable) {
+    onError(_data, variable) {
       toast.error(`failed to delete ${variable.name}`);
     },
   });

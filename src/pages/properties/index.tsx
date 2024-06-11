@@ -1,4 +1,3 @@
-import React from "react";
 import { useGetPropertiesInfoQuery } from "../../apis/properties/queries";
 import { Box, Grid, Typography } from "@mui/material";
 import PropertyCard from "../../components/items/cards/property";
